@@ -11,13 +11,7 @@ class AdminController extends Controller
 
     }
 
-    function Petugas(){
-        return view('Dashboard');
 
-    }
-    function user(){
-        return view('home');
-    }
 }
 
 

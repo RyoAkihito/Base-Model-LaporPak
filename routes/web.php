@@ -15,16 +15,18 @@ route::middleware(['auth'])->group(function () {
         return view('admin'); // Pastikan file blade-nya ada
     })->middleware('UserAkses:admin')->name('admin'); // Tambahkan name
 
-    Route::get('/Dashboard', function () {
-        return view('Dashboard'); // Pastikan file blade-nya ada
-    })->middleware('UserAkses:petugas')->name('Dashboard'); // Tambahkan name
+    // Route::get('/Dashboard', function () {
+    //     return view('Dashboard'); // Pastikan file blade-nya ada
+    // })->middleware('UserAkses:petugas')->name('Dashboard'); // Tambahkan name
 
-    Route::get('/', function () {
-        return view('home'); // Pastikan file blade-nya ada
-    })->middleware('UserAkses:user')->name('home'); // Tambahkan name
+
     
 
     Route::get('/logout', [SesiController::class, 'logout']);
+});
+
+Route::get('/', function () {
+    return view('home'); // Pastikan file blade-nya ada
 });
 
 // Route::get('/home', function () {
