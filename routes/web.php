@@ -10,11 +10,12 @@ Route::get('/laporan', [LaporanController::class, 'create'])->name('laporan.crea
 Route::post('/laporan', [LaporanController::class, 'store'])->name('laporan.store');
 Route::get('/laporan/{kode_unik}', [LaporanController::class, 'show'])->name('laporan.show');
 
+//ROUTE UNTUK LOGIN
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [SesiController::class, 'index'])->name('login');
     Route::post('/login', [SesiController::class, 'login']);
 });
-
+//ROUTE UNTUK ADMIN
 route::middleware(['auth'])->group(function () {
     Route::get('/admin', function () {
         return view('admin'); // Pastikan file blade-nya ada
@@ -23,9 +24,6 @@ route::middleware(['auth'])->group(function () {
     // Route::get('/Dashboard', function () {
     //     return view('Dashboard'); // Pastikan file blade-nya ada
     // })->middleware('UserAkses:petugas')->name('Dashboard'); // Tambahkan name
-
-
-    
 
     Route::get('/logout', [SesiController::class, 'logout']);
 });
@@ -38,6 +36,8 @@ Route::get('/', function () {
 //     return view('home'); // Sesuaikan dengan halaman yang ada
 // })->name('home');
 
+//ROUTE UNTUK LAPORAN
+Route::get('/admin', [AdminController::class, 'Laporan'])->name('Laporan')->middleware('auth');
 
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

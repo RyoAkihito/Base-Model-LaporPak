@@ -70,57 +70,12 @@
             </h1>
 
             <!-- Statistik Laporan -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div class="p-4 bg-white shadow-lg rounded-lg animate-fade-in">
-                    <h2 class="text-lg font-semibold text-gray-700">Total Laporan</h2>
-                    <p class="text-2xl font-bold text-gray-800">120</p>
-                </div>
-                <div class="p-4 bg-white shadow-lg rounded-lg animate-fade-in" style="animation-delay: 0.2s;">
-                    <h2 class="text-lg font-semibold text-gray-700">Laporan Selesai</h2>
-                    <p class="text-2xl font-bold text-green-600">90</p>
-                </div>
-                <div class="p-4 bg-white shadow-lg rounded-lg animate-fade-in" style="animation-delay: 0.4s;">
-                    <h2 class="text-lg font-semibold text-gray-700">Laporan Dalam Proses</h2>
-                    <p class="text-2xl font-bold text-yellow-600">30</p>
+
                 </div>
             </div>
 
             <!-- Tabel Laporan -->
-            <div class="bg-white p-6 shadow-lg rounded-lg animate-fade-in">
-                <h2 class="text-lg font-semibold text-gray-700 mb-4 flex items-center">
-                    <i class="fas fa-file-alt mr-2 text-blue-500"></i> Laporan Terbaru
-                </h2>
-                <div class="overflow-x-auto">
-                    <table class="w-full border-collapse border border-gray-200 rounded-lg">
-                        <thead>
-                            <tr class="bg-gray-100">
-                                <th class="border border-gray-200 p-3 text-left text-gray-700">No</th>
-                                <th class="border border-gray-200 p-3 text-left text-gray-700">Judul</th>
-                                <th class="border border-gray-200 p-3 text-left text-gray-700">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border border-gray-200">
-                                <td class="border border-gray-200 p-3">1</td>
-                                <td class="border border-gray-200 p-3">Laporan AC Rusak</td>
-                                <td class="border border-gray-200 p-3">
-                                    <span class="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-yellow-100 text-yellow-700">
-                                        Pending
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="border border-gray-200">
-                                <td class="border border-gray-200 p-3">2</td>
-                                <td class="border border-gray-200 p-3">Laporan Lampu Mati</td>
-                                <td class="border border-gray-200 p-3">
-                                    <span class="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-green-100 text-green-700">
-                                        Selesai
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
             </div>
         </main>
     </div>

@@ -9,26 +9,4 @@ class Laporan extends Model
 {
     use HasFactory;
 
-    protected $table = 'laporan';
-
-    protected $fillable = [
-        'nama', 'email', 'judul', 'deskripsi', 'lokasi', 'foto_bukti', 'kategori', 'status', 'kode_unik'
-    ];
-
-    protected static function boot()
-    {
-        parent::boot();
-        static::creating(function ($laporan) {
-            $laporan->kode_unik = self::generateUniqueCode();
-        });
-    }
-
-    private static function generateUniqueCode()
-    {
-        do {
-            $code = str_pad(random_int(0, 99999999), 8, '0', STR_PAD_LEFT);
-        } while (self::where('kode_unik', $code)->exists());
-
-        return $code;
-    }
 }
