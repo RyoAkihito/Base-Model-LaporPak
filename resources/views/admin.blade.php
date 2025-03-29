@@ -27,15 +27,15 @@
             <div class="grid grid-cols-3 gap-4 mb-6">
                 <div class="p-4 bg-white shadow rounded-lg">
                     <h2 class="text-lg font-semibold">Total Laporan</h2>
-                    <p class="text-2xl font-bold">120</p>
+                    <p class="text-2xl font-bold">{{ $TotalLaporan }}</p>
                 </div>
                 <div class="p-4 bg-white shadow rounded-lg">
                     <h2 class="text-lg font-semibold">Laporan Selesai</h2>
-                    <p class="text-2xl font-bold text-green-600">90</p>
+                    <p class="text-2xl font-bold text-green-600">{{ $LaporanSelesai }}</p>
                 </div>
                 <div class="p-4 bg-white shadow rounded-lg">
                     <h2 class="text-lg font-semibold">Laporan Dalam Proses</h2>
-                    <p class="text-2xl font-bold text-yellow-600">30</p>
+                    <p class="text-2xl font-bold text-yellow-600">{{ $LaporanPending }}</p>
                 </div>
             </div>
 
@@ -47,20 +47,21 @@
                         <tr class="bg-gray-100">
                             <th class="border p-2">No</th>
                             <th class="border p-2">Judul</th>
+                            <th class="border p-2">Kategori</th>
                             <th class="border p-2">Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border">
-                            <td class="border p-2">1</td>
-                            <td class="border p-2">Laporan AC Rusak</td>
-                            <td class="border p-2 text-yellow-600">Pending</td>
-                        </tr>
-                        <tr class="border">
-                            <td class="border p-2">2</td>
-                            <td class="border p-2">Laporan Lampu Mati</td>
-                            <td class="border p-2 text-green-600">Selesai</td>
-                        </tr>
+                        @foreach($laporan as $x)
+                            
+                        
+                            <tr class="border">
+                                <td class="border p-2 text-center">{{ $loop->iteration }}</td>
+                                <td class="border p-2">{{ $x->JudulLaporan }}</td>
+                                <td class="border p-2">{{ $x->Kategori }}</td>
+                                <td class="border p-2">{{ $x->Status }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
