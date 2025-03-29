@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LaporanController;
+
+Route::get('/laporan', [LaporanController::class, 'create'])->name('laporan.create');
+Route::post('/laporan', [LaporanController::class, 'store'])->name('laporan.store');
+Route::get('/laporan/{kode_unik}', [LaporanController::class, 'show'])->name('laporan.show');
 
 //ROUTE UNTUK LOGIN
 Route::middleware(['guest'])->group(function () {
