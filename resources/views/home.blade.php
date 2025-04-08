@@ -32,15 +32,20 @@
     <header class="bg-white shadow">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo atau Brand -->
-            <a href="/" class="text-xl font-bold text-gray-800 hover:text-blue-600 transition duration-300 flex items-center">
-                LaporPak
-            </a>
-            <!-- Menu Navigasi -->
-            <div class="space-x-6">
-                <a href="/laporan" class="text-gray-600 hover:text-blue-500 transition duration-300">Buat Laporan</a>
+            <div class="flex items-center space-x-4">
+                <a href="/" class="text-xl font-bold text-gray-800 hover:text-blue-600 transition duration-300">
+                    LaporPak
+                </a>
+            </div>
+    
+            <!-- Menu Navigasi Tengah -->
+            <div class="flex items-center space-x-6">
+                <a href="/laporan" class="text-gray-600 hover:text-blue-500 transition duration-300">Laporkan</a>
+                <a href="/daftar" class="text-gray-600 hover:text-blue-500 transition duration-300">Cari Laporan</a>
             </div>
         </nav>
     </header>
+    
 
     <!-- Hero Section -->
     <section class="text-center py-24 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">

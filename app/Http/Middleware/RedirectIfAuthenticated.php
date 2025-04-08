@@ -12,7 +12,7 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            return redirect('/Home'); // Redirect ke dashboard jika sudah login
+            return redirect('/admin'); // Redirect ke dashboard jika sudah login
         }
 
         return $next($request);

@@ -42,9 +42,14 @@
                 {{ $laporan->status }}
             </span>
         </div>
-        <div class="flex items-center">
+        <div class="flex items-center space-x-3">
             <span class="w-32 font-semibold text-gray-700"><i class="fas fa-key mr-2"></i> Kode Unik:</span>
-            <span class="text-gray-900 font-mono bg-gray-100 px-2 py-1 rounded">{{ $laporan->kode_unik }}</span>
+            <span id="kodeUnik" class="text-gray-900 font-mono bg-gray-100 px-2 py-1 rounded">{{ $laporan->kode_unik }}</span>
+
+            <button onclick="copyKodeUnik()"
+                class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition duration-300 text-sm">
+                <i class="fas fa-copy mr-1"></i> Salin
+            </button>
         </div>
     </div>
 
@@ -53,11 +58,20 @@
         <a href="{{ url('/laporan') }}" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-300 flex items-center">
             <i class="fas fa-arrow-left mr-2"></i> Kembali
         </a>
-        @if($laporan->status != 'Selesai')
-            <a href="{{ url('/laporan/' . $laporan->id . '/edit') }}" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300 flex items-center">
-                <i class="fas fa-edit mr-2"></i> Edit
-            </a>
-        @endif
     </div>
 </div>
+
+<!-- Script untuk copy -->
+<script>
+    function copyKodeUnik() {
+        const kodeUnik = document.getElementById("kodeUnik").innerText;
+        navigator.clipboard.writeText(kodeUnik)
+            .then(() => {
+                alert("Kode unik berhasil disalin!");
+            })
+            .catch((err) => {
+                console.error("Gagal menyalin:", err);
+            });
+    }
+</script>
 @endsection

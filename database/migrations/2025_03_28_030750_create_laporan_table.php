@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->string('nama');
             $table->string('email');
-            $table->string('kode_unik', 8)->unique();
+            $table->string('kode_unik', 20)->unique();
             $table->string('judul');
             $table->text('deskripsi');
             $table->string('lokasi');

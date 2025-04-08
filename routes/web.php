@@ -6,9 +6,21 @@ use App\Http\Controllers\SesiController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LaporanController;
 
+Route::get('/admin', [AdminController::class, 'index']);
+
 Route::get('/laporan', [LaporanController::class, 'create'])->name('laporan.create');
 Route::post('/laporan', [LaporanController::class, 'store'])->name('laporan.store');
 Route::get('/laporan/{kode_unik}', [LaporanController::class, 'show'])->name('laporan.show');
+
+
+// Tetap untuk membuat laporan
+Route::get('/laporan/create', [LaporanController::class, 'create'])->name('laporan.create');
+Route::post('/laporan', [LaporanController::class, 'store'])->name('laporan.store');
+
+// Diubah dari /laporan ke /daftar
+Route::get('/daftar', [LaporanController::class, 'index'])->name('daftar.index');
+Route::get('/daftar/{kode_unik}', [LaporanController::class, 'show'])->name('daftar.show');
+
 
 //ROUTE UNTUK LOGIN
 Route::middleware(['guest'])->group(function () {
@@ -17,9 +29,9 @@ Route::middleware(['guest'])->group(function () {
 });
 //ROUTE UNTUK ADMIN
 route::middleware(['auth'])->group(function () {
-    Route::get('/admin', function () {
-        return view('admin'); // Pastikan file blade-nya ada
-    })->middleware('UserAkses:admin')->name('admin'); // Tambahkan name
+    Route::get('/admin', [AdminController::class, 'index'])
+    ->middleware('UserAkses:admin')
+    ->name('admin');
 
     // Route::get('/Dashboard', function () {
     //     return view('Dashboard'); // Pastikan file blade-nya ada
@@ -37,7 +49,7 @@ Route::get('/', function () {
 // })->name('home');
 
 //ROUTE UNTUK LAPORAN
-Route::get('/admin', [AdminController::class, 'Laporan'])->name('Laporan')->middleware('auth');
+// Route::get('/admin', [AdminController::class, 'Laporan'])->name('Laporan')->middleware('auth');
 
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

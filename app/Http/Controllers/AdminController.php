@@ -8,25 +8,17 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    function index(){
-        return view('admin');
-
-    }
-
-    function Laporan(){
+    public function index()
+    {
+        // Mengambil semua data laporan
         $laporan = Laporan::all();
 
-        $TotalLaporan = DB::table('laporan')->count();
-        $LaporanPending = DB::table('laporan')->where('Status', 'Pending')->count();
-        $LaporanSelesai = DB::table('laporan')->where('Status', 'Selesai')->count();
+        // Menghitung statistik laporan berdasarkan status
+        $TotalLaporan = Laporan::count();
+        $LaporanPending = Laporan::where('status', 'Dikirim')->count();
+        $LaporanSelesai = Laporan::where('status', 'Selesai')->count();
 
-        return view('admin', compact('laporan'),
-        [
-            'TotalLaporan' => $TotalLaporan,
-            'LaporanPending' => $LaporanPending,
-            'LaporanSelesai' => $LaporanSelesai
-        ]);
+        // Mengirim data ke view
+        return view('admin', compact('laporan', 'TotalLaporan', 'LaporanPending', 'LaporanSelesai'));
     }
 }
-
-
